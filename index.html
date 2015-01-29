@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="instructorApp">
+  <head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.1/angularfire.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-controller="InstructorController">
+
+    <h1>WDI Instructors!</h1>
+    <hr>
+    <input type="text" ng-model="newInstructor"><button ng-click="addInstructor()">Add it!</button>
+    {{newInstructor}}
+    <hr>
+    <ul>
+      <li ng-repeat="instructor in instructors">
+        <dl>
+        <dt>Name</dt>
+        <dd ng-click="anonymizeName($index)">{{instructor.name}}</dd>
+
+        <dt>Hobbies</dt>
+        <dd>{{instructor.hobby}}</dd>
+        </dl>
+      </li>
+    </ul>
+    
+  </body>
+</html>
